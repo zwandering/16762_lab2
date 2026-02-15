@@ -87,7 +87,7 @@ class IKNode:
             if j.name == 'joint_mast':
                 j.parent = 'link_base_translation'
 
-        new_urdf_path = "/home/haokun/homework/16762/lab2"
+        new_urdf_path = "~/16762/haokunz/16762_lab2"
         modified_urdf.save(new_urdf_path)
 
         chain = ikpy.chain.Chain.from_urdf_file(new_urdf_path)
