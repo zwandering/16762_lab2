@@ -102,10 +102,10 @@ class IKNode:
             True,   # 7:  joint_arm_l2 (prismatic)
             True,   # 8:  joint_arm_l1 (prismatic)
             True,   # 9:  joint_arm_l0 (prismatic)
-            True,   # 10: joint_wrist_yaw (revolute)
+            False,   # 10: joint_wrist_yaw (revolute)
             False,  # 11: joint_wrist_yaw_bottom (fixed)
-            True,   # 12: joint_wrist_pitch (revolute)
-            True,   # 13: joint_wrist_roll (revolute)
+            False,   # 12: joint_wrist_pitch (revolute)
+            False,   # 13: joint_wrist_roll (revolute)
             False,  # 14: joint_gripper_s3_body (fixed)
             False,  # 15: joint_grasp_center (fixed)
         ]
