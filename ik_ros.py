@@ -9,8 +9,8 @@ import rclpy
 
 # NOTE before running: `python3 -m pip install --upgrade ikpy graphviz urchin networkx`
 
-# target_point = [0.5, -0.441, 0.5]
-target_point = [0.0, -0.0, 0.5]
+target_point = [0.5, -0.441, 0.5]
+# target_point = [0.0, -0.0, 0.5]
 target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, -np.pi/2) # [roll, pitch, yaw]
 
 
@@ -67,7 +67,7 @@ class IKNode:
                                         joint_type='revolute',
                                         axis = np.array([0.0,0.0,1.0]), #rotation around z
                                         origin=np.eye(4, dtype=np.float64),
-                                        limit=urdfpy.JointLimit(effort=100.0, velocity=1.0, lower=-1.0, upper=1.0))
+                                        limit=urdfpy.JointLimit(effort=100.0, velocity=1.0, lower=-5.0, upper=5.0))
         modified_urdf._joints.append(joint_base_rotation) 
                                
         joint_base_translation = urdfpy.Joint(name='joint_base_translation',
