@@ -126,7 +126,7 @@ class IKNode:
         q_rotation = 0.0
         q_translation = 0.0
         q_lift = bound_range('joint_lift', self._get_joint_position('joint_lift'))
-        q_arml = bound_range('joint_arm_l0', self._get_joint_position('joint_arm'))
+        q_arml = bound_range('joint_arm_l0', self._get_joint_position('joint_arm') / 4.0)
         q_yaw = bound_range('joint_wrist_yaw', self._get_joint_position('joint_wrist_yaw'))
         q_pitch = bound_range('joint_wrist_pitch', self._get_joint_position('joint_wrist_pitch'))
         q_roll = bound_range('joint_wrist_roll', self._get_joint_position('joint_wrist_roll'))
@@ -151,8 +151,8 @@ class IKNode:
             blocking=True,
             duration=3.0
         )
-        self.node.move_to_pose({'rotate_mobile_base': q_rotation})
-        self.node.move_to_pose({'translate_mobile_base': q_translation})
+        self.node.move_to_pose({'rotate_mobile_base': q_rotation}, blocking=True, duration=4.0)
+        self.node.move_to_pose({'translate_mobile_base': q_translation}, blocking=True, duration=4.0)
 
 
     def move_to_grasp_goal(self, target_point, target_orientation):
