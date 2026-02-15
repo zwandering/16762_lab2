@@ -162,6 +162,7 @@ class IKNode:
             print("IKPy did not find a valid solution")
             return
         self.move_to_configuration(q=q_soln)
+        print(f"Moved to configuration: {q_soln}")
         return q_soln
 
     def get_current_grasp_pose(self):  
