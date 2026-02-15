@@ -9,7 +9,7 @@ import rclpy
 
 # NOTE before running: `python3 -m pip install --upgrade ikpy graphviz urchin networkx`
 
-target_point = [0.5, -0.5, 0.2]
+target_point = [0.5, -0.441, 0.2]
 target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, -np.pi/2) # [roll, pitch, yaw]
 
 
@@ -150,6 +150,8 @@ class IKNode:
 
     def move_to_grasp_goal(self, target_point, target_orientation):
         q_init = self.get_current_configuration()
+        print(f"Current configuration: {q_init}")
+        print(f"Solving IK for target point {target_point} and target orientation:\n{target_orientation}")
         q_soln = self.chain.inverse_kinematics(target_point, target_orientation, orientation_mode='all', initial_position=q_init)
         print('Solution:', q_soln)
 
