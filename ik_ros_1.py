@@ -212,6 +212,7 @@ class StretchIKDemo(hm.HelloNode):
         ([0.6, 0.0, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
         ([0.0, 0.6, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
         ([0.0, -0.6, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
+        ([0.6, 0.0, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
         ]
         for i, (point, orientation) in enumerate(z_walk_poses):
             self.move_to_grasp_goal(point, orientation)
