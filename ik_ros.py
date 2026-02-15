@@ -76,7 +76,7 @@ class IKNode:
                                             joint_type='prismatic',
                                             axis=np.array([1.0, 0.0, 0.0]),
                                             origin=np.eye(4, dtype=np.float64),
-                                            limit=urdfpy.JointLimit(effort=100.0, velocity=1.0, lower=-1.0, upper=1.0))
+                                            limit=urdfpy.JointLimit(effort=100.0, velocity=1.0, lower=-2.0, upper=2.0))
         modified_urdf._joints.append(joint_base_translation)
         link_base_translation = urdfpy.Link(name='link_base_translation',
                                             inertial=None,
