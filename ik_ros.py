@@ -11,7 +11,7 @@ import rclpy
 
 target_point = [0.53, -0.441, 0.2]
 # target_point = [0.0, -0.0, 0.2]
-target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, -np.pi) # [roll, pitch, yaw]
+target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, -np.pi/2) # [roll, pitch, yaw]
 
 
 
