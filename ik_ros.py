@@ -57,11 +57,6 @@ class IKNode:
 
         # Add virtual base joint
 
-        link_base_rotation = urdfpy.Link(name = 'link_base_rotation',
-                                        inertial = None,
-                                        visuals = None,
-                                        collisions = None)
-        modified_urdf._links.append(link_base_rotation) 
         joint_base_rotation = urdfpy.Joint(name='joint_base_rotation',
                                         parent='base_link',
                                         child = 'link_base_rotation',
@@ -70,6 +65,11 @@ class IKNode:
                                         origin=np.eye(4, dtype=np.float64),
                                         limit=urdfpy.JointLimit(effort=100.0, velocity=1.0, lower=-5.0, upper=5.0))
         modified_urdf._joints.append(joint_base_rotation) 
+        link_base_rotation = urdfpy.Link(name = 'link_base_rotation',
+                                        inertial = None,
+                                        visuals = None,
+                                        collisions = None)
+        modified_urdf._links.append(link_base_rotation) 
                                
         joint_base_translation = urdfpy.Joint(name='joint_base_translation',
                                             parent='link_base_rotation',
@@ -92,27 +92,27 @@ class IKNode:
         new_urdf_path = "/tmp/iktutorial/stretch.urdf"
         modified_urdf.save(new_urdf_path)
 
-        active_links_mask = [
-            False,  # 0:  Base link (fixed)
-            True,   # 1:  joint_base_rotation (revolute)
-            True,   # 2:  joint_base_translation (prismatic)
-            False,  # 3:  joint_mast (fixed)
-            True,   # 4:  joint_lift (prismatic)
-            False,  # 5:  joint_arm_l4 (fixed)
-            True,   # 6:  joint_arm_l3 (prismatic)
-            True,   # 7:  joint_arm_l2 (prismatic)
-            True,   # 8:  joint_arm_l1 (prismatic)
-            True,   # 9:  joint_arm_l0 (prismatic)
-            True,   # 10: joint_wrist_yaw (revolute)
-            False,  # 11: joint_wrist_yaw_bottom (fixed)
-            True,   # 12: joint_wrist_pitch (revolute)
-            True,   # 13: joint_wrist_roll (revolute)
-            False,  # 14: joint_gripper_s3_body (fixed)
-            False,  # 15: joint_grasp_center (fixed)
-        ]
+        # active_links_mask = [
+        #     False,  # 0:  Base link (fixed)
+        #     True,   # 1:  joint_base_rotation (revolute)
+        #     True,   # 2:  joint_base_translation (prismatic)
+        #     False,  # 3:  joint_mast (fixed)
+        #     True,   # 4:  joint_lift (prismatic)
+        #     False,  # 5:  joint_arm_l4 (fixed)
+        #     True,   # 6:  joint_arm_l3 (prismatic)
+        #     True,   # 7:  joint_arm_l2 (prismatic)
+        #     True,   # 8:  joint_arm_l1 (prismatic)
+        #     True,   # 9:  joint_arm_l0 (prismatic)
+        #     True,   # 10: joint_wrist_yaw (revolute)
+        #     False,  # 11: joint_wrist_yaw_bottom (fixed)
+        #     True,   # 12: joint_wrist_pitch (revolute)
+        #     True,   # 13: joint_wrist_roll (revolute)
+        #     False,  # 14: joint_gripper_s3_body (fixed)
+        #     False,  # 15: joint_grasp_center (fixed)
+        # ]
 
-        chain = ikpy.chain.Chain.from_urdf_file(new_urdf_path, active_links_mask=active_links_mask)
-        # chain = ikpy.chain.Chain.from_urdf_file(new_urdf_path)
+        # chain = ikpy.chain.Chain.from_urdf_file(new_urdf_path, active_links_mask=active_links_mask)
+        chain = ikpy.chain.Chain.from_urdf_file(new_urdf_path)
 
         return chain
 
