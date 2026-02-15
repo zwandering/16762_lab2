@@ -9,7 +9,7 @@ import rclpy
 
 # NOTE before running: `python3 -m pip install --upgrade ikpy graphviz urchin networkx`
 
-target_point = [0.5, -0.441, 0.3]
+target_point = [0.5, -0.6, 0.3]
 # target_point = [1.0, -0.0, 0.2]
 # target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, -np.pi/2) # [roll, pitch, yaw]
 target_orientation = ikpy.utils.geometry.rpy_matrix(0.0, 0.0, 0.0) # [roll, pitch, yaw]
