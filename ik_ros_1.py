@@ -200,21 +200,22 @@ class StretchIKDemo(hm.HelloNode):
         # # Move to grasp goal
         # self.move_to_grasp_goal(target_point, target_orientation)
         # print(self.get_current_grasp_pose())
-        print("===Part1.1===")
-        z_walk_poses = [
-        ([0.6, 0.0, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),]
-        for i, (point, orientation) in enumerate(z_walk_poses):
-            self.move_to_grasp_goal(point, orientation)
-        
-        # print("===Part1.2===")
+
+        # print("===Part1.1===")
         # z_walk_poses = [
-        # ([0.6, 0.0, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
-        # ([0.0, -0.6, 0.4], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
-        # ([-0.6, 0.0, 0.2], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
-        # ([0.0, 0.6, 0.4], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
-        # ]
+        # ([0.6, 0.0, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),]
         # for i, (point, orientation) in enumerate(z_walk_poses):
         #     self.move_to_grasp_goal(point, orientation)
+        
+        print("===Part1.2===")
+        z_walk_poses = [
+        ([0.6, 0.0, 0.3], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
+        ([0.0, -0.6, 0.4], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
+        ([-0.6, 0.0, 0.2], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
+        ([0.0, 0.6, 0.4], ikpy.utils.geometry.rpy_matrix(0, 0, 0)),
+        ]
+        for i, (point, orientation) in enumerate(z_walk_poses):
+            self.move_to_grasp_goal(point, orientation)
 
         # Stop
         self.stop_the_robot()
