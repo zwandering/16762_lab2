@@ -170,7 +170,7 @@ class IKNode:
 
 def main():
     ik_node = IKNode()
-    ik_node.node.stow_the_robot()
+    # ik_node.node.stow_the_robot()
     ik_node.move_to_grasp_goal(target_point, target_orientation)
     print("Current grasp pose:")
     print(ik_node.get_current_grasp_pose())
